@@ -243,10 +243,3 @@ footer {
   /* Removed the conflicting nav-list li margin that was here previously */
 }
 
-.lf-player-btn {
-  color: #999; /* Assuming you want to change the text color */
-}
-
-.lf-player-btn.active {
-  color: #555; /* Assuming you want to change the text color */
-}
