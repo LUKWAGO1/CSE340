@@ -8,7 +8,7 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.6;
-  color: #333;
+  color: #000000;
   max-width: 100%;
   overflow-x: hidden;
   background-color: #fff;
@@ -23,6 +23,11 @@ body {
   padding: 0;
 }
 
+
+h1{
+  text-align: center;
+  margin-top: 5%;
+}
 img {
   max-width: 100%;
   height: auto;
@@ -30,7 +35,7 @@ img {
 
 a {
   text-decoration: none;
-  color: #0056b3; /* Darker blue for better contrast */
+  color: #003366; /* Darkened for better contrast */
 }
 
 ul {
@@ -60,71 +65,71 @@ header {
 
 .account a {
   font-size: 0.9rem;
-  color: #022c1e; /* Darker blue for better contrast */
+  color: darkblue; /* Changed to black for maximum contrast */
 }
 
 /* Navigation Styles */
-nav {
-  background-color: #242424; /* Darker background for better contrast */
-  padding: 0.5rem 0;
-}
-
-.nav-list {
+nav ul {
   display: flex;
-  justify-content: center; /* Changed from space-around to center */
-  gap: 2rem; /* Added gap for spacing between items */
+  justify-content: space-evenly;
+  padding: 5px;
+  background-color: black;
+  padding: 10px;
 }
 
-.nav-list li a {
-  color: #fff;
-  padding: 0.5rem;
-  display: block;
-  font-size: 0.9rem;
-}
-
-/* Main Content Styles */
-.main-content {
-  padding: 1rem;
-  margin: 0 20px;
+nav ul li{
+  list-style: none;
 }
 
 .main-content h1 {
   margin-bottom: 1rem;
 }
 
+.flex-outer{
+  padding-right: 100px;
+  margin: auto;
+}
+
+.vehicleImage{
+  margin-left: 100px;
+}
+title{margin-left: 100px;}
+
 /* Hero Section */
 .hero {
   position: relative;
-  background-color:  white; /* White background for better contrast */
+  background-color: white; /* White background for better contrast */
   padding: 1rem;
   margin-bottom: 2rem;
   border-radius: 5px;
 }
 
 .hero-details {
-  z-index: 2;
-  position: relative;
+  width: 300px;
+  height: 300px;
+  font-size: x-large;
 }
 
 .hero-details h2 {
-  color: #0077b6; /* Darker blue for better contrast - matches image */
+  color: #000; /* Changed to black for maximum contrast */
   margin-bottom: 0.5rem;
   font-weight: bold;
 }
 
 .hero-details ul {
   margin-bottom: 1rem;
-  color: darkblue; /* Darker turquoise to match image and improve contrast */
+  color: darkblue; /* Changed to black for maximum contrast */
   font-weight: bold;
 }
 
 .hero-image {
   max-width: 100%;
   margin-top: 1rem;
+  position: relative;
 }
 
 .cta-button {
-  background-color: #033660; /* Darker blue for better contrast */
+  background-color: darkblue; /* Changed to black for maximum contrast */
   color: white;
   border: none;
   padding: 0.8rem 1.5rem;
@@ -141,7 +146,7 @@ nav {
 
 .upgrades, .reviews {
   background-color: #f5f5f5;
-  padding: 1rem;
+  padding: 1.5rem;
   border-radius: 5px;
 }
 
@@ -167,7 +172,7 @@ nav {
   max-height: 100px;
   object-fit: cover;
   border: 1px solid #ddd;
-  background-color: #031e27; /* Bright blue to match image */
+  background-color: #000000; /* Changed to black for maximum contrast */
   padding: 0.5rem;
 }
 
@@ -183,9 +188,9 @@ nav {
 
 .review-list li {
   margin-bottom: 0.5rem;
-  font-size: 0.9rem;
+  font-size: 1.6rem;
   list-style-type: disc; /* Bullet points to match image */
-  color: #333;
+  color: #000000;
 }
 
 /* Footer Styles */
@@ -237,9 +242,117 @@ footer {
   
   .nav-list {
     justify-content: center; /* Keep centered in desktop view */
-    gap: 2rem; /* Keep consistent spacing */
+    gap: 10rem; /* Keep consistent spacing */
   }
-  
-  /* Removed the conflicting nav-list li margin that was here previously */
 }
 
+/* for mobile view  */ 
+#inv-display {
+  color: #000;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  gap: 10px;
+  width: 100%;
+  max-width: 800px;
+  margin: auto;/* Navigation Styles */
+nav ul {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 5px;
+  background-color: black;
+  padding: 10px;
+}
+
+nav ul li{
+  list-style: none;
+}
+  word-wrap: break-word;
+  font-family: 'Inter', serif;
+}
+
+#inv-display li {
+  border: 1px solid #ddd;
+  border-radius: 8px; /* Rounded corners for a modern look */
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  text-align: center;
+  margin: 0 10px; /* Add horizontal margin for spacing */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+}
+
+#inv-display li:hover {
+  transform: translateY(-5px); /* Slight lift on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+#inv-display img {
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid #ddd; /* Separate image from content */
+}
+
+#inv-display .namePrice {
+  padding: 1rem;
+}
+
+#inv-display .namePrice h2 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 0.5rem 0; /* Add vertical spacing */
+  color: #333;
+}
+
+#inv-display .namePrice span {
+  display: block;
+  font-size: 1rem;
+  color: #007BFF; /* Highlight price in blue */
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+@media only screen and (min-width: 38em) {
+  #inv-display {
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(200px, 1fr)
+    ); /* Adjust column width */
+    grid-template-rows: repeat(2, auto);
+  }
+ 
+  #singleVehicleWrapper {
+    max-width: 100vw;
+    height: 62vh;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+ 
+  #singleVehicleWrapper img {
+    max-width: 100%;
+  }
+ 
+  #singleVehicleDetails {
+    text-align: left;
+    width: 24rem;
+  }
+}
+
+/* Adjust layout for medium screens */
+@media only screen and (min-width: 768px) {
+  #inv-display {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive grid with multiple columns */
+    gap: 1.5rem;
+  }
+}
+
+/* Adjust layout for larger screens */
+@media only screen and (min-width: 1200px) {
+  #inv-display {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns for larger screens */
+    gap: 2rem;
+  }
+}

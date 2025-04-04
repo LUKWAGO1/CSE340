@@ -26,18 +26,18 @@ async function getInventoryByClassificationId(classification_id) {
   }
 }
 
-// /** Creating a new model for a single vehicle inventory */
+/* ***************************
+ *  Get inventory item by ID
+ * ************************** */
+async function getInventoryByInvId(invId) {
+  try {
+    const sql = "SELECT * FROM inventory WHERE inv_id = $1";
+    const data = await pool.query(sql, [invId]);
+    return data.rows;
+  } catch (error) {
+    console.error("getInventoryByInvId error: " + error);
+    throw error;
+  }
+}
 
-// async function getInventoryByInvId(inv_id) {
-//   try {
-//     const data = await pool.query(
-//       SELECT * FROM public.inventory WHERE inv_id = $1,
-//       [inv_id]
-//     );
-//     return data.rows;
-//   } catch (error) {
-//     console.error('getInventoryByInvId error ' + error);
-//   }
-// }
-
-module.exports = {getClassifications, getInventoryByClassificationId};
+module.exports = {getClassifications, getInventoryByClassificationId, getInventoryByInvId};
