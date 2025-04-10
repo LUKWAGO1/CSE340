@@ -1,16 +1,37 @@
-const { Pool } = require("pg");
+// Add the following to your database/index.js file
+const { Pool } = require("pg")
+require("dotenv").config()
+/* ***************
+ * Connection Pool
+ * SSL Object needed for local testing of app
+ * But will cause problems in production environment
+ * If - else will make determination which to use
+ * *************** */
+let pool
+if (process.env.NODE_ENV == "development") {
+  pool = new Pool({
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+      rejectUnauthorized: false,
+    },
+  })
 
-const pool = new Pool({
-  user: "your_user", // Replace with your PostgreSQL username
-  host: "127.0.0.1", // Use IPv4 explicitly
-  database: "your_database", // Replace with your database name
-  password: "your_password", // Replace with your PostgreSQL password
-  port: 5432, // Default PostgreSQL port
-});
-
-pool.on("error", (err) => {
-  console.error("Unexpected error on idle client", err);
-  process.exit(-1);
-});
-
-module.exports = pool;
+// Added for troubleshooting queries
+// during development
+  module.exports = {
+    async query(text, params) {
+      try {
+        const res = await pool.query(text, params)
+        return res
+      } catch (error) {
+        console.error("error in query", { text })
+        throw error
+      }
+    },
+  }
+} else {
+  pool = new Pool({
+    connectionString: process.env.DATABASE_URL,
+  })
+  module.exports = pool
+}

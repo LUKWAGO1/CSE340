@@ -1,14 +1,16 @@
-// Needed Resources 
+// In the routes/inventoryRoute.js file
 const express = require("express")
-const router = new express.Router() 
-const invController = require("../controllers/invController")
+const router = new express.Router()
 const utilities = require("../utilities/")
-// Route to build inventory by classification view
-router.get("/type/:classificationId", invController.buildByClassificationId);
-// Route to build inventory by single vehicle view
-router.get('/detail/:invId', utilities.handleErrors(invController.buildByInventoryId));
+const inventoryController = require("../controllers/inventoryController")
 
-// Route to handle specific inventory item details
-router.get("/detail/:invId", utilities.handleErrors(invController.buildByInventoryId));
+// Route to build inventory by classification view
+router.get("/type/:classificationId", inventoryController.buildByClassificationId);
+
+// Vehicle Detail Route
+router.get("/detail/:id", utilities.handleErrors(inventoryController.buildDetail))
+
+// Broken route
+router.get("/broken", utilities.handleErrors(inventoryController.throwError))
 
 module.exports = router;
